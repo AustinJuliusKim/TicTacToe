@@ -12,10 +12,10 @@
 	<!-- ng-controller -->
 	<main ng-controller="TicTacToeController as ctrl">
 	<h1>Let's play tic tac toe</h1>
-
+{{ 2+ 2}}
 		<nav class="top_container">
 			<h1 id="hover" class="nav">Instructions</h1>
-			<h1 class="nav">Player {{ ctrl.nextPlayer}} </h1>
+			<h1 class="nav">Player  </h1>
 			<!-- <h1 class="nav">Score: {{ 2 }} to {{ 3 }}</h1> -->
 			<h1 id="play" ng-click="ctrl.readyToPlay()" class="nav">Ready to Play!</h1>
 		</nav>
@@ -24,7 +24,7 @@
 
 		<div class="container" >
 		<!-- Start of ng repeat -->
-			<div  class="box"  ng-repeat="space in ctrl.board"ng-click= "ctrl.alternatePlay(space)"  >
+			<div  class="box"  ng-repeat="space in ctrl.gameObj.spaces"ng-click= "ctrl.alternatePlay(space)"  >
 			<!-- Placed piece -->
 				<span >{{ space.piece }}</span>
 			<!-- End of placed piece -->
@@ -34,6 +34,8 @@
 	</main>
 
 	<script src="js/angular.js" type="text/javascript"></script>
+	 <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+	 <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 	<script src="js/controller.js" type="text/javascript"></script>
 
