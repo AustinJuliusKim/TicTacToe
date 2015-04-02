@@ -1,2 +1,2 @@
 angular
-	.module('mainApp', ['firebase']);
+	.module('mainApp', []);

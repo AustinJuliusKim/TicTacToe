@@ -48,25 +48,6 @@ button {
 	display: inline-block;
 	vertical-align: top;
 }
-/*
-.instructions {
-	height: 600px;
-	width: 600px;
-	position: absolute;
-	border: 1px yellow solid;
-
-}
-
-section {
-	text-align: center;
-	line-height: 300%;
-	border: 1px blue solid;
-	display: none;
-	
-
-
-}*/
-
 
 .box {
 	max-width: 173px;
