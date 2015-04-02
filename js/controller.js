@@ -33,7 +33,7 @@ function TicTacToeController() {
 	function alternatePlay(space) {
 		var index = self.board.indexOf(space);	
 		if (self.board[index].piece !== " ") {
-			return alert("That space is occupied already");
+			alert("That space is occupied already");
 		}
 		else {
 			if (nextPlayer === "O") {
@@ -42,45 +42,48 @@ function TicTacToeController() {
 			else {
 				nextPlayer = "O";
 			}
-			self.board[index].piece = nextPlayer;
-		}
-		determineWinner();
-	}
 
+			self.board[index].piece = nextPlayer;
+			console.log("hi", self.board[index].piece);
+
+		}
+		self.determineWinner();
+	}
 
 	function determineWinner() {
-
-		console.log("check ")
 		if (winnerIs("X")) {
-			
-			// for (var i = 0; i < 9; i ++){
-			// 		self.board[i].piece = " ";
-			// 	}
-			return 	alert("X wins");
+			setTimeout(function(){
+				alert("X wins"),500});
 		}
-		else if (winnerIs("O")) {s
-			return alert("O wins");
+		else if (winnerIs("O")) {
+			setTimeout(function(){
+				alert("O wins"),500});
 		}
 		else {
-			return null;
+			 null;
 		}		
 	}
+
 	function allThree(player, spaceOne,spaceTwo,spaceThree) {
 		return (spaceOne === player) && (spaceTwo ===player) && (spaceThree === player);
 	}
+
 	function winnerIs(player) {
 		return winsRow(player) || winsCol(player) || winsDiag(player);
 	}
+
 	function winsRow(player, spaceOne,spaceTwo,spaceThree) {
 		return  allThree(player, self.board[0].piece, self.board[1].piece, self.board[2].piece) ||
 			allThree(player, self.board[3].piece, self.board[4].piece, self.board[5].piece) ||
 			allThree(player, self.board[6].piece, self.board[7].piece, self.board[8].piece);
 	}
+
 	function winsCol(player, spaceOne,spaceTwo,spaceThree) {
 		return allThree(player, self.board[0].piece, self.board[3].piece, self.board[6].piece) ||
 			allThree(player, self.board[1].piece, self.board[4].piece, self.board[7].piece) ||
 			allThree(player, self.board[2].piece, self.board[5].piece, self.board[8].piece);
 	}
+	
 	function winsDiag(player, spaceOne,spaceTwo,spaceThree) {
 		return allThree(player, self.board[0].piece, self.board[4].piece, self.board[8].piece) ||
 			allThree(player, self.board[2].piece, self.board[4].piece, self.board[6].piece);
