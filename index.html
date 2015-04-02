@@ -24,7 +24,7 @@
 
 		<div class="container" >
 		<!-- Start of ng repeat -->
-			<div  class="box"  ng-repeat="space in ctrl.gameObj.spaces"ng-click= "ctrl.alternatePlay(space)"  >
+			<div  class="box"  ng-repeat="space in ctrl.gameObj.gameBoard"ng-click= "ctrl.alternatePlay(space)"  >
 			<!-- Placed piece -->
 				<span >{{ space.piece }}</span>
 			<!-- End of placed piece -->

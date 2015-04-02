@@ -20,57 +20,31 @@ function TicTacToeController($firebaseObject) {
 	self.winsCol = winsCol;
 	self.winsDiag = winsDiag;
 
-	//richard was here
 	self.gameObj = syncFB();
 
-	function syncFB(){
-		var ref = new Firebase('https://tictact.firebaseio.com/');
+	// Start sync portion of everything we want to sync with FB
+	function syncFB() {
+		var ref = new Firebase('https://tictact.firebaseio.com/gameObj/');
 		var gameObj = $firebaseObject(ref);
 
 		gameObj.$loaded(function(){
-			//all thee shit
-			gameObj.nextPlayer;
-			//end of shit
-			gameObj.board = [{piece : " "},
-						{piece : " "},
-						{piece : " "},
-						{piece : " "},
-						{piece : " "},
-						{piece : " "},
-						{piece : " "},
-						{piece : " "},
-						{piece : " "}];
-			gameObj.$save();
-		});
+			console.log("This loads second: ");
+			
+			
+		})
+		// gameObj.gameBoard = [{piece : "X"},
+		// 				{piece : "X"},
+		// 				{piece : "X"},
+		// 				{piece : " "},
+		// 				{piece : " "},
+		// 				{piece : " "},
+		// 				{piece : " "},
+		// 				{piece : " "},
+		// 				{piece : " "}];
+		// gameObj.$save();
+		console.log("This loads first: ");
 		return gameObj;
 	}
-	//end of richard
-
-	// self.board = [];
-	// for (var i = 0 ; i < 9 ; i++) {
-	// 		self.board.push({piece : " ", space: i})
-	// }
-
-	// function getBoardObject() {
-	// 	var ref = new Firebase("https://tictact.firebaseio.com/")
-	// 	var board = $firebaseObject(ref);
-	// 	board.spaces = [{piece : " "},
-	// 					{piece : " "},
-	// 					{piece : " "},
-	// 					{piece : " "},
-	// 					{piece : " "},
-	// 					{piece : " "},
-	// 					{piece : " "},
-	// 					{piece : " "},
-	// 					{piece : " "}]
-	// 	// board.$save();
-	// 	board.$loaded(function() {
-	// 		console.log("hi")
-	// 			board.piece
-	// 	});
-	// 	return board;
-
-	// }
 
 // Ready to Play will script an alert stating X goes first and then clears the board of placed pieces.
 	function readyToPlay() {
