@@ -1,37 +1,87 @@
 body {
 	font-family: 'Ribeye Marrow', cursive;
 	text-align: center;
-	vertical-align: top;
+	/*vertical-align: top ;*/
 	background-color: black;
 	color: white;
 }
-p {
+span {
 	font-size: 50px;
-
+	margin: auto;
+	position: relative;
+	top: 50px;
 }
+
 h1 {
 	text-decoration: line-through;
 	font-weight: bold;
 }
+button {
+	font-family: arial;
+	color: black;
+}
 
+
+.nav {
+	text-decoration: none;
+	padding: 20px 0px;
+	display: inline;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.top_container {
+	border: 1px dashed white;
+	
+	width: 600px;
+	
+	font-size: 10px;
+	text-align: center;
+	margin: 0 auto;
+}
 
 .container {
 	width: 600px;
 	height: 600px;
 	border: 2px solid white;
-	padding: 10px 0 0 0;
+	padding: 5px 0 0 0;
 	margin: auto;
+	display: inline-block;
+	vertical-align: top;
+}
+/*
+.instructions {
+	height: 600px;
+	width: 600px;
+	position: absolute;
+	border: 1px yellow solid;
+
 }
 
-.space {
+section {
+	text-align: center;
+	line-height: 300%;
+	border: 1px blue solid;
+	display: none;
+	
+
+
+}*/
+
+
+.box {
 	max-width: 173px;
 	max-height: 173px;
 	width: 28% ;
 	height: 29% ;
 	border: 2px solid white;
 	display: inline-block;
-	margin: 0 auto;
+	margin: 1px auto;
 	padding: 10px;
-	vertical-align: top
-	
+	vertical-align: top;
+	background-color:black;
+	font-size: 50px;
+	text-align: center;
+	z-index: 1;
+
 }
