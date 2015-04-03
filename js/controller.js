@@ -43,6 +43,7 @@ function TicTacToeController($firebaseObject) {
 		})
 
 		gameObj.nextPlayer="O";
+		//  Syncs the next player with firebase to determine which piece to place next
 
 		// gameObj.gameBoard = [{piece : " "},
 		// 				{piece : " "},
@@ -75,20 +76,14 @@ function TicTacToeController($firebaseObject) {
 		else {
 			if (self.gameObj.nextPlayer === "O") {
 				self.gameObj.nextPlayer = "X";
-				
 			}
 			else {
 				self.gameObj.nextPlayer = "O";
-				
 			}
-		
-
 		self.gameObj.gameBoard[index].piece = self.gameObj.nextPlayer;
-		console.log("hi", self.gameObj.gameBoard[index].piece);
-	
-		}
-		self.determineWinner();
-		self.gameObj.$save();
+	}
+	self.determineWinner();
+	self.gameObj.$save();
 
 	}
 
