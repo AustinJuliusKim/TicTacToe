@@ -2,18 +2,10 @@
 <html>
 <head>
 	<title>TIC TAC TOE</title>
-	<script src="js/angular.js" type="text/javascript"></script>
-	<script src="js/app.js" type="text/javascript"></script>
-	<script src="js/controller.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-<<<<<<< HEAD
-	<link href='http://fonts.googleapis.com/css?family=Ribeye+Marrow' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/style.css">	
-=======
 	<link href='https://fonts.googleapis.com/css?family=Ribeye+Marrow' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
->>>>>>> firebase
 </head>
 <!-- ng-app -->
 <body ng-app="mainApp">
@@ -22,6 +14,9 @@
 	<h1>Let's play tic tac toe</h1>
 
 		<nav class="top_container">
+			<h1 id="hover" class="nav">Instructions</h1>
+			<h1 class="nav">Player  </h1>
+			<!-- <h1 class="nav">Score: {{ 2 }} to {{ 3 }}</h1> -->
 			<h1 id="play" ng-click="ctrl.readyToPlay()" class="nav">Ready to Play!</h1>
 		</nav>
 				
@@ -29,20 +24,20 @@
 
 		<div class="container" >
 		<!-- Start of ng repeat -->
-<<<<<<< HEAD
-			<div  class="box" ng-repeat="space in ctrl.gameBoard"ng-click= "ctrl.alternatePlay(space)" >
-=======
 			<div  class="box"  ng-repeat="space in ctrl.gameObj.gameBoard"ng-click= "ctrl.alternatePlay(space)"  >
->>>>>>> firebase
 			<!-- Placed piece -->
-				<span>{{ space.piece }}</span>
+				<span >{{ space.piece }}</span>
 			<!-- End of placed piece -->
 			</div>
 		<!-- End of ng repeat -->
 		</div>
 	</main>
 
-	
+	<script src="js/angular.js" type="text/javascript"></script>
+	 <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+	 <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+	<script src="js/app.js" type="text/javascript"></script>
+	<script src="js/controller.js" type="text/javascript"></script>
 
 </body>
 </html>
