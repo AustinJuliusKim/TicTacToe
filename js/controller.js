@@ -8,7 +8,7 @@ function TicTacToeController($firebaseObject) {
 	
 	var self = this;
 	self.test = "controller is working";
-	var nextPlayer = "O";
+	// var nextPlayer = "O";
 
 	self.readyToPlay = readyToPlay;
 	self.alternatePlay = alternatePlay;
@@ -28,50 +28,68 @@ function TicTacToeController($firebaseObject) {
 		var gameObj = $firebaseObject(ref);
 
 		gameObj.$loaded(function(){
+			gameObj.gameBoard = [{piece : " "},
+						{piece : " "},
+						{piece : " "},
+						{piece : " "},
+						{piece : " "},
+						{piece : " "},
+						{piece : " "},
+						{piece : " "},
+						{piece : " "}];
+		//  This loads every time the page is refreshed, however data will not be saved if the page is refreshed
+
 			console.log("This loads second: ");
-			
-			
 		})
-		// gameObj.gameBoard = [{piece : "X"},
-		// 				{piece : "X"},
-		// 				{piece : "X"},
+
+		gameObj.nextPlayer="O";
+
+		// gameObj.gameBoard = [{piece : " "},
+		// 				{piece : " "},
+		// 				{piece : " "},
 		// 				{piece : " "},
 		// 				{piece : " "},
 		// 				{piece : " "},
 		// 				{piece : " "},
 		// 				{piece : " "},
 		// 				{piece : " "}];
-		// gameObj.$save();
+
+		gameObj.$save();
+
 		console.log("This loads first: ");
 		return gameObj;
 	}
-
 // Ready to Play will script an alert stating X goes first and then clears the board of placed pieces.
 	function readyToPlay() {
 		alert("Player X goes first");
 		for (var i = 0; i < 9; i ++){
-		self.gameObj.board[i].piece = " ";
+		self.gameObj.gameBoard[i].piece = " ";
 		}	
 	}
 // Alternate Play will alternate between X and O. First move will be X, then O upon click.
 	function alternatePlay(space) {
-		var index = self.gameObj.board.indexOf(space);	
-		if (self.gameObj.board[index].piece !== " ") {
+		var index = self.gameObj.gameBoard.indexOf(space);	
+		if (self.gameObj.gameBoard[index].piece !== " ") {
 			alert("That space is occupied already");
 		}
 		else {
-			if (nextPlayer === "O") {
-				nextPlayer = "X";
+			if (self.gameObj.nextPlayer === "O") {
+				self.gameObj.nextPlayer = "X";
+				
 			}
 			else {
-				nextPlayer = "O";
+				self.gameObj.nextPlayer = "O";
+				
 			}
+		
 
-			self.gameObj.board[index].piece = nextPlayer;
-			console.log("hi", self.gameObj.board[index].piece);
-
+		self.gameObj.gameBoard[index].piece = self.gameObj.nextPlayer;
+		console.log("hi", self.gameObj.gameBoard[index].piece);
+	
 		}
 		self.determineWinner();
+		self.gameObj.$save();
+
 	}
 
 	function determineWinner() {
@@ -85,7 +103,8 @@ function TicTacToeController($firebaseObject) {
 		}
 		else {
 			 null;
-		}		
+		}	
+
 	}
 
 	function allThree(player, spaceOne,spaceTwo,spaceThree) {
@@ -97,22 +116,23 @@ function TicTacToeController($firebaseObject) {
 	}
 
 	function winsRow(player, spaceOne,spaceTwo,spaceThree) {
-		return  allThree(player, self.gameObj.board[0].piece, self.gameObj.board[1].piece, self.gameObj.board[2].piece) ||
-			allThree(player, self.gameObj.board[3].piece, self.gameObj.board[4].piece, self.gameObj.board[5].piece) ||
-			allThree(player, self.gameObj.board[6].piece, self.gameObj.board[7].piece, self.gameObj.board[8].piece);
+		return  allThree(player, self.gameObj.gameBoard[0].piece, self.gameObj.gameBoard[1].piece, self.gameObj.gameBoard[2].piece) ||
+			allThree(player, self.gameObj.gameBoard[3].piece, self.gameObj.gameBoard[4].piece, self.gameObj.gameBoard[5].piece) ||
+			allThree(player, self.gameObj.gameBoard[6].piece, self.gameObj.gameBoard[7].piece, self.gameObj.gameBoard[8].piece);
 	}
 
 	function winsCol(player, spaceOne,spaceTwo,spaceThree) {
-		return allThree(player, self.gameObj.board[0].piece, self.gameObj.board[3].piece, self.gameObj.board[6].piece) ||
-			allThree(player, self.gameObj.board[1].piece, self.gameObj.board[4].piece, self.gameObj.board[7].piece) ||
-			allThree(player, self.gameObj.board[2].piece, self.gameObj.board[5].piece, self.gameObj.board[8].piece);
+		return allThree(player, self.gameObj.gameBoard[0].piece, self.gameObj.gameBoard[3].piece, self.gameObj.gameBoard[6].piece) ||
+			allThree(player, self.gameObj.gameBoard[1].piece, self.gameObj.gameBoard[4].piece, self.gameObj.gameBoard[7].piece) ||
+			allThree(player, self.gameObj.gameBoard[2].piece, self.gameObj.gameBoard[5].piece, self.gameObj.gameBoard[8].piece);
 	}
 
 	function winsDiag(player, spaceOne,spaceTwo,spaceThree) {
-		return allThree(player, self.gameObj.board[0].piece, self.gameObj.board[4].piece, self.gameObj.board[8].piece) ||
-			allThree(player, self.gameObj.board[2].piece, self.gameObj.board[4].piece, self.gameObj.board[6].piece);
+		return allThree(player, self.gameObj.gameBoard[0].piece, self.gameObj.gameBoard[4].piece, self.gameObj.gameBoard[8].piece) ||
+			allThree(player, self.gameObj.gameBoard[2].piece, self.gameObj.gameBoard[4].piece, self.gameObj.gameBoard[6].piece);
 	}
 }
+
 
 
 
