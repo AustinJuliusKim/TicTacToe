@@ -16,9 +16,6 @@
 	<h1>Let's play tic tac toe</h1>
 
 		<nav class="top_container">
-			<h1 id="hover" class="nav">Instructions</h1>
-			<h1 class="nav">Player {{ ctrl.nextPlayer}} </h1>
-			<!-- <h1 class="nav">Score: {{ 2 }} to {{ 3 }}</h1> -->
 			<h1 id="play" ng-click="ctrl.readyToPlay()" class="nav">Ready to Play!</h1>
 		</nav>
 				
@@ -26,7 +23,7 @@
 
 		<div class="container" >
 		<!-- Start of ng repeat -->
-			<div  class="box" ng-repeat="space in ctrl.board"ng-click= "ctrl.alternatePlay(space)"  >
+			<div  class="box" ng-repeat="space in ctrl.gameBoard"ng-click= "ctrl.alternatePlay(space)" >
 			<!-- Placed piece -->
 				<span>{{ space.piece }}</span>
 			<!-- End of placed piece -->
