@@ -8,7 +8,7 @@ function TicTacToeController($firebaseObject) {
 	
 	var self = this;
 	self.test = "controller is working";
-	// var nextPlayer = "O";
+	
 
 	self.readyToPlay = readyToPlay;
 	self.alternatePlay = alternatePlay;
@@ -38,22 +38,11 @@ function TicTacToeController($firebaseObject) {
 						{piece : " "},
 						{piece : " "}];
 		//  This loads every time the page is refreshed, however data will not be saved if the page is refreshed
-
 			console.log("This loads second: ");
 		})
-
 		gameObj.nextPlayer="O";
 		//  Syncs the next player with firebase to determine which piece to place next
 
-		// gameObj.gameBoard = [{piece : " "},
-		// 				{piece : " "},
-		// 				{piece : " "},
-		// 				{piece : " "},
-		// 				{piece : " "},
-		// 				{piece : " "},
-		// 				{piece : " "},
-		// 				{piece : " "},
-		// 				{piece : " "}];
 
 		gameObj.$save();
 
@@ -96,11 +85,21 @@ function TicTacToeController($firebaseObject) {
 			setTimeout(function(){
 				alert("O wins"),500});
 		}
-		else {
-			 null;
-		}	
-
+		else if (checkCatsGame()) {
+			setTimeout(function(){
+				alert("Cat's Game"), 500;
+			})
+		}
 	}
+
+
+	function checkCatsGame () {
+		var boardFull = self.gameObj.gameBoard.every(function(x) {
+			return x.piece !== " ";
+		});
+		return boardFull;
+	}
+	
 
 	function allThree(player, spaceOne,spaceTwo,spaceThree) {
 		return (spaceOne === player) && (spaceTwo ===player) && (spaceThree === player);

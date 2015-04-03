@@ -14,8 +14,13 @@
 	<h1>Let's play tic tac toe</h1>
 
 		<nav class="top_container">
-			<h1 id="hover" class="nav">Instructions</h1>
-			<h1 class="nav">Player  </h1>
+			
+			<h1 id="hover" class "nav" >Instructions</h1><hr><br>
+			<div class="instructions">	
+				<article> Click anywhere in the grid to begin game - First player will be X's and Second player will be O's - Occupy three spaces horizontally, vertically, or diagonally to win</article>
+			</div>
+			<br><hr>
+			<h1 class="nav">Score</h1>
 			<!-- <h1 class="nav">Score: {{ 2 }} to {{ 3 }}</h1> -->
 			<h1 id="play" ng-click="ctrl.readyToPlay()" class="nav">Ready to Play!</h1>
 		</nav>
