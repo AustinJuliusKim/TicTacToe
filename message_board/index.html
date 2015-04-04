@@ -1,0 +1,59 @@
+<!-- 1. Inject firebase
+	2. Initialize sync
+	3. Make sure data is linked in model
+	4. Message board needs to be injected into TicTacToe Game
+	5. Styling needs to be update  -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Message Board</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="msgcontrol.js"></script>           
+
+	
+</head>
+<body ng-app="messageApp">
+
+<div id="chatRoomBox">
+	<div class="wrapper" ng-controller="MessageBoardController as mb">
+		
+		<header>
+			<h1>Message Board <br>has {{ mb.listOfMessages.length }} messages</h1>
+		</header>
+
+		<main>
+			
+
+			<!--  The messages will appear here -->
+				<section class="message-list">
+					<ul>
+						<li ng-repeat="msg in mb.listOfMessages">	<span> {{msg.userName}}: {{ msg.comment }}</span>
+						</li>
+					</ul>
+				</section>
+			<!-- End message appear -->
+
+			<!-- This will be the user name input -->
+			<div>
+				<input class="text-input" id="username" type="text" ng-model="mb.user" placeholder="username">
+			</div>
+			<!--  End user name input -->
+
+			<!--  This will be the message enter box -->
+			<form class="add-message" ng-submit="mb.limitChatBox()">
+				<input class="text-input" id="text-box" ng-model="mb.chat" type="text'">
+				<input class="myButton" type="submit">
+			</form>
+			<!-- End message enter box  -->
+
+		</main>
+	</div>        
+</div>
+	
+</body>
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>TIC TAC TOE</title>
@@ -26,7 +26,7 @@
 		</nav>
 				
 		<br>
-
+		<div>{{ ctrl.gameObj.winner + (ctrl.gameObj.winner ? " wins" : "") }}</div>
 		<div class="container" >
 		<!-- Start of ng repeat -->
 			<div  class="box"  ng-repeat="space in ctrl.gameObj.gameBoard"ng-click= "ctrl.alternatePlay(space)"  >
