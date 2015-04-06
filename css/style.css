@@ -17,7 +17,7 @@ h1 {
 }
 
 h1:hover {
-	transform: scale(2);
+	transform: scale(1.1);
 }
 .instructions {
 	height: 60px;
@@ -52,9 +52,9 @@ article {
 	text-align: center;
 	margin: 0 auto;
 }
-.top_container:hover {
+/*.top_container:hover {
 	border: 2px dashed white
-}
+}*/
 
 .container {
 	width: 600px;
@@ -65,10 +65,10 @@ article {
 	display: inline-block;
 	vertical-align: top;
 }
-.container:hover {
+/*.container:hover {
 	border: 2px dashed white;
 
-}
+}*/
 
 
 .box {
@@ -90,9 +90,14 @@ article {
 }
 .box:hover {
 	border: 2px white dashed;
-	transform: rotate(10deg) scale(1.1);
+	transform: rotate(10deg) scale(0.9);
 }
 
 button {
 	vertical-align: center;
+}
+
+.whoWon {
+	font-size: 50px;
+	margin-bottom: 10px;
 }

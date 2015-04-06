@@ -81,11 +81,15 @@ function TicTacToeController($firebaseObject) {
 		if (winnerIs("X")) {
 			self.gameObj.winner = "X";
 			self.gameObj.$save();
-			console.log(self.gameObj.winner);
+			console.log(gameObj.winner);
+			setTimeout(function(){
+				alert("X wins"),500});
 		}
 		else if (winnerIs("O")) {
 			self.gameObj.winner = "O";
 			self.gameObj.$save();
+			setTimeout(function(){
+				alert("O wins"),500});
 		}
 		else if (checkCatsGame()) {
 			setTimeout(function(){
