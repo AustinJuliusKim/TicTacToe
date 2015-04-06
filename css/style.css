@@ -24,8 +24,6 @@ h1:hover {
 	position: relative;
 	transition: 1s all;
 	top: -10px;
-
-	
 }
 .instructions:hover {
 	transform: translateX(-2000px);
